@@ -1,0 +1,90 @@
+*{
+  margin:0;
+  padding: 0;
+}
+h1, h2, h3, h4, h5, h6, p, li, a{
+  color: yellow;
+  opacity: 0.9;
+  text-align: center;
+}
+html{
+  font-family: Helvetica;
+  font-size: 22px;
+  background-color: black;
+}
+
+header{
+  height: 69px;
+  border-bottom: 1px solid yellow;
+  position: absolute;
+  width: 100%;
+  z-index: 10;
+  background-color: black;
+}
+
+header img{
+  height: 50px;
+  display: inline-block;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+
+header h1{
+  display: inline-block;
+  position: absolute;
+  left: 70px;
+  top: 15px;
+}
+
+.content {
+  position: relative;
+  top: 75px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.content .newpostbutton{
+  margin-top: 20px;
+  background-color: yellow;
+  height: 50px;
+  width: 200px;
+  font-size: 22px;
+  font: Helvetica;
+  border-radius: 50px;
+  border-color: orange;
+  border-width: 0px;
+}
+
+
+.postlist .post{
+  margin-top: 100px;
+  height: 100px;
+  width: 1000px;
+  display: flex;
+  justify-content: center;
+}
+
+.post img{
+  height: 75px;
+}
+
+.post .postinfo{
+  height: 75px;
+  margin-left: 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.postinfo button{
+  background-color: yellow;
+  border-radius: 20px;
+  border-width: 0px;
+  height: 30px;
+  font-size: 18px;
+}
