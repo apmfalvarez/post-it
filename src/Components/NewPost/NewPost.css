@@ -28,6 +28,7 @@
     margin-bottom: 5px;
     height: 30px;
     font-size: 22px;
+    border-color: white;
 }
 
 .newpostcontent textarea{

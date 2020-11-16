@@ -17,7 +17,7 @@ class App extends React.Component {
   create(title,content){
     const currentPosts = this.state.posts;
     const newPost = {title: title, content: content};
-    currentPosts.push(newPost);
+    currentPosts.unshift(newPost);
     this.setState({posts: currentPosts});
   }
 
