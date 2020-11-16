@@ -1,0 +1,28 @@
+.newpost{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 1000px;
+    margin-bottom: 20px;
+}
+
+.newpostbutton{
+    margin: 20px 0 20px 0;
+    background-color: yellow;
+    height: 50px;
+    width: 200px;
+    font-size: 22px;
+    font: Helvetica;
+    border-radius: 50px;
+    border-width: 0px;
+}
+
+
+#newposttitle{
+    width: 500px;
+    height: 200px;
+}
+
+#newpostcontent{
+
+}

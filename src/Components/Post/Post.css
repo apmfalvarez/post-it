@@ -2,7 +2,7 @@
   width: 1000px;
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
   
 .post .postinfo{
@@ -33,4 +33,5 @@
   background-size: 500px 500px;
   color: black;
   padding-top: 150px;
+  margin-top: 10px;
 }

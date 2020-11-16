@@ -3,15 +3,13 @@ import './App.css';
 import React from 'react';
 import PostList from '../PostList/PostList';
 import Postit from '../../utils/postit';
+import NewPost from '../NewPost/NewPost'
 
 class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      posts : [{title: 'lalala', content: 'lololo'},{title: 'yabadabadoo', content: 'skkkkkkraaaaaaa'}],
-      newPostTitle: '',
-      newPostContent: '',
-      posting: false
+      posts : [{title: 'lalala', content: 'lololo', key:1},{title: 'yabadabadoo', content: 'skkkkkkraaaaaaa', key:2}],
     }
   }/*
   componentWillMount(){
@@ -26,9 +24,7 @@ class App extends React.Component {
           <h1>Post.it</h1>
         </header>
         <section className='content'>
-          <div id='#newpost'>
-            <button className="newpostbutton">NEW POST</button>
-          </div>
+          <NewPost />
           <PostList posts={this.state.posts}/>
         </section>
       </div>

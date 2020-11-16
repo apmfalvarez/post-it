@@ -16,7 +16,7 @@ html{
 header{
   height: 69px;
   border-bottom: 1px solid yellow;
-  position: absolute;
+  position: fixed;
   width: 100%;
   z-index: 10;
   background-color: black;
@@ -46,15 +46,4 @@ header h1{
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-}
-
-.content .newpostbutton{
-  margin: 20px 0 20px 0;
-  background-color: yellow;
-  height: 50px;
-  width: 200px;
-  font-size: 22px;
-  font: Helvetica;
-  border-radius: 50px;
-  border-width: 0px;
 }
