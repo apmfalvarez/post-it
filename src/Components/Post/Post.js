@@ -17,7 +17,7 @@ class Post extends React.Component{
         return(
             <div className='post'>
               <div className='postinfo'>
-                <button className='showcommentsbutton' onClick={this.showAndHide}>{this.state.hidden? 'SHOW' : 'HIDE'}</button>
+                <button className='showcontentbutton' onClick={this.showAndHide}>{this.state.hidden? 'SHOW' : 'HIDE'}</button>
                 <h2>{this.props.post.title}</h2>
               </div>
               {this.state.hidden? null : <h3 className='postcontent'>{this.props.post.content}</h3>}

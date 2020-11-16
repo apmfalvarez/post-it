@@ -10,12 +10,17 @@ class App extends React.Component {
     super(props);
     this.state = {
       posts : [{title: 'lalala', content: 'lololo', key:1},{title: 'yabadabadoo', content: 'skkkkkkraaaaaaa', key:2}],
-    }
-  }/*
-  componentWillMount(){
-    const posts = Postit.getPosts;
-    this.setState({posts: posts});
-  }*/
+    };
+    this.create = this.create.bind(this);
+  }
+
+  create(title,content){
+    const currentPosts = this.state.posts;
+    const newPost = {title: title, content: content};
+    currentPosts.push(newPost);
+    this.setState({posts: currentPosts});
+  }
+
   render(){
     return (
       <div className="App">
@@ -24,7 +29,7 @@ class App extends React.Component {
           <h1>Post.it</h1>
         </header>
         <section className='content'>
-          <NewPost />
+          <NewPost create={this.create}/>
           <PostList posts={this.state.posts}/>
         </section>
       </div>

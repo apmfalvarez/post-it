@@ -10,19 +10,38 @@
     margin: 20px 0 20px 0;
     background-color: yellow;
     height: 50px;
+    width: 50px;
+    font-size: 40px;
+    font-weight: bold;
+    font: Helvetica;
+    border-radius: 60px;
+    border-width: 0px;
+}
+
+.newpostcontent{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.newpostcontent input{
+    margin-bottom: 5px;
+    height: 30px;
+    font-size: 22px;
+}
+
+.newpostcontent textarea{
+    height: 200px;
+    font-size: 18px;
+}
+
+.submitpostbutton{
+    margin: 20px 0 20px 0;
+    background-color: yellow;
+    height: 50px;
     width: 200px;
     font-size: 22px;
     font: Helvetica;
     border-radius: 50px;
     border-width: 0px;
-}
-
-
-#newposttitle{
-    width: 500px;
-    height: 200px;
-}
-
-#newpostcontent{
-
 }
