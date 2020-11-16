@@ -49,42 +49,12 @@ header h1{
 }
 
 .content .newpostbutton{
-  margin-top: 20px;
+  margin: 20px 0 20px 0;
   background-color: yellow;
   height: 50px;
   width: 200px;
   font-size: 22px;
   font: Helvetica;
   border-radius: 50px;
-  border-color: orange;
   border-width: 0px;
-}
-
-
-.postlist .post{
-  margin-top: 100px;
-  height: 100px;
-  width: 1000px;
-  display: flex;
-  justify-content: center;
-}
-
-.post img{
-  height: 75px;
-}
-
-.post .postinfo{
-  height: 75px;
-  margin-left: 20px;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-}
-
-.postinfo button{
-  background-color: yellow;
-  border-radius: 20px;
-  border-width: 0px;
-  height: 30px;
-  font-size: 18px;
 }

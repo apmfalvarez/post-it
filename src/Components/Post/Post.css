@@ -1,0 +1,36 @@
+.post{
+  width: 1000px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+  
+.post .postinfo{
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+}
+
+.post .postinfo button{
+  background-image: url('postit.png');
+  background-size: 75px 75px;
+  border-width: 0px;
+  height: 75px;
+  width: 75px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.post .postinfo h2{
+  margin-left: 20px;
+}
+
+.post .postcontent{
+  width: 500px;
+  height: 350px;
+  display: block;
+  background-image: url('postit.png');
+  background-size: 500px 500px;
+  color: black;
+  padding-top: 150px;
+}

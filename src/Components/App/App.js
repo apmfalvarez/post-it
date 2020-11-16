@@ -1,9 +1,23 @@
 import logo from '../../logo.png';
 import './App.css';
 import React from 'react';
-import Post from '../Post/post'
+import PostList from '../PostList/PostList';
+import Postit from '../../utils/postit';
 
 class App extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      posts : [{title: 'lalala', content: 'lololo'},{title: 'yabadabadoo', content: 'skkkkkkraaaaaaa'}],
+      newPostTitle: '',
+      newPostContent: '',
+      posting: false
+    }
+  }/*
+  componentWillMount(){
+    const posts = Postit.getPosts;
+    this.setState({posts: posts});
+  }*/
   render(){
     return (
       <div className="App">
@@ -15,12 +29,7 @@ class App extends React.Component {
           <div id='#newpost'>
             <button className="newpostbutton">NEW POST</button>
           </div>
-          <div className='postlist'>
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-          </div>
+          <PostList posts={this.state.posts}/>
         </section>
       </div>
     );
