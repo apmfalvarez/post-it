@@ -28,7 +28,9 @@ postsRouter.use('/:postId/comments', commentsRouter);
 
 postsRouter.get('/', (req, res, next)=>{
     db.all(
-        `SELECT * FROM Post`,
+        `SELECT * FROM Post
+            ORDER BY id DESC
+        `,
         (error, rows)=>{
             if (error){
                 next(error);

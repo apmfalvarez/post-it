@@ -5,7 +5,7 @@ import PostList from '../PostList/PostList';
 import Postit from '../../utils/postit';
 import NewPost from '../NewPost/NewPost'
 
-Postit.deletePost({id: 1})
+
 class App extends React.Component {
   constructor(props){
     super(props);
@@ -29,10 +29,10 @@ class App extends React.Component {
   deletePost(post){
     const currentPosts = this.state.posts;
     Postit.deletePost(post)
-    .then(deletedPost=>{
-      currentPosts.pop(deletedPost);
+    .then((deleted)=>{
+      const newPosts = currentPosts.filter(i => i !== deleted);
       console.log('lalalala')
-      this.setState({posts: currentPosts});
+      this.setState({posts: newPosts});
     })
     .catch(error => {return});
   }
