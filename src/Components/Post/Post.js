@@ -1,12 +1,12 @@
 import React from 'react';
-import postit from './postit.png';
 import './Post.css';
 
 class Post extends React.Component{
   constructor(props){
       super(props);
       this.state = {
-        hidden: true
+        hidden: true,
+        post: this.props.post
       };
       this.showAndHide = this.showAndHide.bind(this);
   }
@@ -23,7 +23,11 @@ class Post extends React.Component{
               {
                 this.state.hidden? null : 
                 <div className='postcontent'>
-                  {this.props.post.content.map((line)=>{return <p>{line}</p>})}
+                  <div className='postbuttonscontainer'>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                  </div>
+                  {this.props.post.content.split('\n').map((line)=>{return <p>{line}</p>})}
                 </div>
               }
             </div>

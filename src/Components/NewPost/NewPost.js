@@ -30,10 +30,10 @@ class NewPost extends React.Component{
     }
 
     create(){
-        const content = this.state.content.split('\n');
-        console.log(content)
-        this.props.create(this.state.title, content);
-        this.showAndHide();
+        if (this.state.title && this.state.content){
+            this.props.create(this.state.title, this.state.content);
+            this.showAndHide();
+        }
     }
 
     render(){
@@ -42,7 +42,7 @@ class NewPost extends React.Component{
                 <button className="newpostbutton" onClick={this.showAndHide}>{this.state.hidden? '+':'-'}</button>
                 {this.state.hidden? null :
                 <div className='newpostcontent'>
-                    <input type='text' placeholder='Title' size='50' onChange={this.handleTitleChange}/>
+                    <input type='text' placeholder='Title' onChange={this.handleTitleChange}/>
                     <textarea id='#newpostcontent' placeholder='Content' cols='40' rows='15' onChange={this.handleContentChange}/>
                     <button className='submitpostbutton' onClick={this.create}>CREATE</button>
                 </div>}

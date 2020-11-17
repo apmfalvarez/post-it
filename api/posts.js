@@ -44,14 +44,15 @@ postsRouter.get('/:postId', (req, res, next)=>{
 
 postsRouter.post('/', (req, res, next)=>{
     const post = req.body.post;
-    if (!post.name){
+    console.log(req.body);
+    if (!post.title){
         return res.status(400).send()
     }
     db.run(`INSERT INTO Post
-        (name, content)
-        VALUES ($name, $content)`,
+        (title, content)
+        VALUES ($title, $content)`,
     {
-        $name: post.name,
+        $title: post.title,
         $content: post.content || ''
     },
     function(error){
@@ -76,17 +77,17 @@ postsRouter.post('/', (req, res, next)=>{
 
 postsRouter.put('/:postId', (req, res, next)=>{
     const post = req.body.post;
-    if (!post.name){
+    if (!post.title){
         return res.status(400).send()
     }
     db.run(
         `UPDATE Post
-            SET name = $name,
+            SET title = $title,
             content = $content,
             WHERE id = $id`,
         {
             $id: req.params.postId,
-            $name: post.name,
+            $title: post.title,
             $content: post.content || ''
         },
         function(error){

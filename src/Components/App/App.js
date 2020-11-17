@@ -5,26 +5,31 @@ import PostList from '../PostList/PostList';
 import Postit from '../../utils/postit';
 import NewPost from '../NewPost/NewPost'
 
+
 class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      posts : [{title: 'lalala', content: 'lololo', key:1},{title: 'yabadabadoo', content: 'skkkkkkraaaaaaa', key:2}],
+      posts : [],
     };
     this.create = this.create.bind(this);
-    this.getPosts = this.getPosts.bind(this);
+    //this.getPosts = this.getPosts.bind(this);
   }
 
   create(title,content){
     const currentPosts = this.state.posts;
     const newPost = {title: title, content: content};
-    currentPosts.unshift(newPost);
-    this.setState({posts: currentPosts});
+    Postit.addPost(newPost)
+    .then(post =>{
+      currentPosts.unshift(post);
+      this.setState({posts: currentPosts});
+    })
+    .catch(error => {return});
   }
 
-  getPosts(){
+  componentDidMount(){
     Postit.getPosts()
-    .then(posts => this.state.posts = posts)
+    .then(posts => this.setState({posts:posts}))
   }
 
   render(){

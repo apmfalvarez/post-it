@@ -7,7 +7,7 @@ db.serialize(()=>{
     db.run(
         `CREATE TABLE IF NOT EXISTS Post (
             id INTEGER PRIMARY KEY,
-            name TEXT NOT NULL,
+            title TEXT NOT NULL,
             content TEXT
             )`
     );
