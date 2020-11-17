@@ -12,6 +12,7 @@ class App extends React.Component {
       posts : [{title: 'lalala', content: 'lololo', key:1},{title: 'yabadabadoo', content: 'skkkkkkraaaaaaa', key:2}],
     };
     this.create = this.create.bind(this);
+    this.getPosts = this.getPosts.bind(this);
   }
 
   create(title,content){
@@ -19,6 +20,11 @@ class App extends React.Component {
     const newPost = {title: title, content: content};
     currentPosts.unshift(newPost);
     this.setState({posts: currentPosts});
+  }
+
+  getPosts(){
+    Postit.getPosts()
+    .then(posts => this.state.posts = posts)
   }
 
   render(){

@@ -36,3 +36,8 @@
   margin-top: 10px;
   overflow: auto;
 }
+.post .postcontent p{
+  color: black;
+  font-size: 22px;
+  overflow-wrap: break-word;
+}

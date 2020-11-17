@@ -20,7 +20,12 @@ class Post extends React.Component{
                 <button className='showcontentbutton' onClick={this.showAndHide}>{this.state.hidden? 'SHOW' : 'HIDE'}</button>
                 <h2>{this.props.post.title}</h2>
               </div>
-              {this.state.hidden? null : <h3 className='postcontent'>{this.props.post.content}</h3>}
+              {
+                this.state.hidden? null : 
+                <div className='postcontent'>
+                  {this.props.post.content.map((line)=>{return <p>{line}</p>})}
+                </div>
+              }
             </div>
         )
     }
