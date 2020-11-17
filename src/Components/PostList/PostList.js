@@ -7,7 +7,7 @@ class PostList extends React.Component{
         return(
             <div className='postlist'>
                 {this.props.posts.map(post =>{
-                return <Post post={post} key={post.id}/>
+                return <Post post={post} key={post.id} delete={this.props.deletePost}/>
                 })}
             </div>
         )

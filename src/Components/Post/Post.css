@@ -42,6 +42,14 @@
   margin-bottom: 125px;
 }
 
+.postdeletebutton{
+  background-color: yellow;
+  border-width: 0;
+  font-size: 30px;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
 .post .postcontent p{
   color: black;
   font-size: 22px;

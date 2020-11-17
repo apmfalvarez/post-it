@@ -34,4 +34,21 @@ Postit.addPost = (post) => {
     });
   }});
 }
+
+Postit.deletePost = (post) => {
+  let url = `${baseUrl}/posts/${post.id}`;
+  return fetch(url, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: JSON.stringify({post: post})
+  }).then(response => {
+    if(response.ok) {
+      return post;
+    }
+  })
+}
+
 export default Postit;

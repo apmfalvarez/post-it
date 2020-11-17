@@ -5,13 +5,16 @@ class Post extends React.Component{
   constructor(props){
       super(props);
       this.state = {
-        hidden: true,
-        post: this.props.post
+        hidden: true
       };
       this.showAndHide = this.showAndHide.bind(this);
+      this.handleDelete = this.handleDelete.bind(this);
   }
   showAndHide(){
     this.state.hidden? this.setState({hidden:false}) : this.setState({hidden: true});
+  }
+  handleDelete(){
+    this.props.delete(this.props.post);
   }
     render(){
         return(
@@ -24,8 +27,7 @@ class Post extends React.Component{
                 this.state.hidden? null : 
                 <div className='postcontent'>
                   <div className='postbuttonscontainer'>
-                    <button>Edit</button>
-                    <button>Delete</button>
+                    <button className='postdeletebutton' onClick={this.handleDelete}>X</button>
                   </div>
                   {this.props.post.content.split('\n').map((line)=>{return <p>{line}</p>})}
                 </div>
