@@ -14,6 +14,7 @@ class App extends React.Component {
     };
     this.create = this.create.bind(this);
     this.deletePost = this.deletePost.bind(this);
+    this.editPost = this.editPost.bind(this);
   }
 
   create(title,content){
@@ -29,12 +30,23 @@ class App extends React.Component {
   deletePost(post){
     const currentPosts = this.state.posts;
     Postit.deletePost(post)
-    .then((deleted)=>{
+    .then(deleted=>{
       const newPosts = currentPosts.filter(i => i !== deleted);
       console.log('lalalala')
       this.setState({posts: newPosts});
     })
     .catch(error => {return});
+  }
+  editPost(post){
+    const posts = this.state.posts;
+    const oldPost = posts.find(i => i.id === post.id);
+    console.log(oldPost);
+    const postIdx = posts.indexOf(oldPost);
+    Postit.editPost(post)
+    .then(edited=>{
+      posts.splice(postIdx, 1, edited);
+      this.setState({posts: posts});
+    })
   }
 
   componentDidMount(){
@@ -51,7 +63,7 @@ class App extends React.Component {
         </header>
         <section className='content'>
           <NewPost create={this.create}/>
-          <PostList posts={this.state.posts} deletePost={this.deletePost}/>
+          <PostList posts={this.state.posts} deletePost={this.deletePost} editPost={this.editPost}/>
         </section>
       </div>
     );

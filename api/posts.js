@@ -85,7 +85,7 @@ postsRouter.put('/:postId', (req, res, next)=>{
     db.run(
         `UPDATE Post
             SET title = $title,
-            content = $content,
+            content = $content
             WHERE id = $id`,
         {
             $id: req.params.postId,

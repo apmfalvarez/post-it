@@ -51,4 +51,22 @@ Postit.deletePost = (post) => {
   })
 }
 
+Postit.editPost = (post) => {
+  let url = `${baseUrl}/posts/${post.id}`;
+  return fetch(url, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: JSON.stringify({post: post})
+  }).then(response => {
+    if(response.ok) {
+      return response.json().then(jsonResponse => {
+      const post = jsonResponse.post;
+      return post;
+    });
+  }});
+}
+
 export default Postit;
