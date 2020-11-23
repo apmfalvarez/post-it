@@ -37,13 +37,31 @@ header h1{
   top: 15px;
 }
 
-.content {
+.container{
   position: relative;
   top: 75px;
-  width: 100%;
+  width: 95%;
+  height: 850px;
   margin: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
+  border: 1px solid orange;
+}
+
+.content {
+  width: 25%;
+  height: 100%;
+  overflow: hidden;
+  overflow-y: scroll;
+  overflow-wrap: break-word;
+  display: inline-block;
+  border: 1px solid green;
+}
+
+.openposts {
+  position: absolute;
+  width: 75%;
+  height: 100%;
+  display: inline-block;
+  border: 1px solid blue;
+  overflow: hidden;
+  overflow-y: scroll;
 }

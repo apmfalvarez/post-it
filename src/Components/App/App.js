@@ -1,7 +1,8 @@
-import logo from '../../logo.png';
+import logo2 from '../../logo2.png';
 import './App.css';
 import React from 'react';
 import PostList from '../PostList/PostList';
+import OpenPostList from '../OpenPostList/OpenPostList';
 import Postit from '../../utils/postit';
 import NewPost from '../NewPost/NewPost'
 
@@ -40,7 +41,6 @@ class App extends React.Component {
   editPost(post){
     const posts = this.state.posts;
     const oldPost = posts.find(i => i.id === post.id);
-    console.log(oldPost);
     const postIdx = posts.indexOf(oldPost);
     Postit.editPost(post)
     .then(edited=>{
@@ -58,13 +58,18 @@ class App extends React.Component {
     return (
       <div className="App">
         <header>
-          <a href='#top'><img src={logo} alt='logo' />
-          <h1>Post.it</h1></a>
+          <a href='#top'><img src={logo2} alt='logo' />
+          <h1>Pin.it</h1></a>
         </header>
-        <section className='content'>
-          <NewPost create={this.create}/>
-          <PostList posts={this.state.posts} deletePost={this.deletePost} editPost={this.editPost}/>
-        </section>
+        <div className='container'>
+          <span className='content'>
+            <NewPost create={this.create}/>
+            <PostList posts={this.state.posts.filter(post=> post.is_open === 0)} deletePost={this.deletePost} editPost={this.editPost}/>
+          </span>
+          <span className='openposts'>
+            <OpenPostList posts={this.state.posts.filter(post=> post.is_open === 1)} deletePost={this.deletePost} editPost={this.editPost}/>
+          </span>
+        </div>
       </div>
     );
   }

@@ -5,7 +5,7 @@ class Post extends React.Component{
   constructor(props){
       super(props);
       this.state = {
-        hidden: true,
+        is_open: this.props.post.is_open,
         id: this.props.post.id,
         title: this.props.post.title,
         content: this.props.post.content,
@@ -19,7 +19,8 @@ class Post extends React.Component{
       this.handleContentChange = this.handleContentChange.bind(this);
   }
   showAndHide(){
-    this.state.hidden? this.setState({hidden:false}) : this.setState({hidden: true});
+    this.props.editPost({id: this.state.id, is_open: this.state.is_open === 1? 0 : 1, title: this.state.title, content: this.state.content})
+    this.state.is_open? this.setState({is_open:0}) : this.setState({is_open: 1});
   }
   handleDelete(){
     this.props.delete(this.props.post);
@@ -42,26 +43,39 @@ class Post extends React.Component{
   render(){
       return(
           <div className='post'>
-            <div className='postinfo'>
-              <button className='showcontentbutton' onClick={this.showAndHide}>{this.state.hidden? 'SHOW' : 'HIDE'}</button>
-              <h2>{this.props.post.title}</h2>
-            </div>
-            {
-              this.state.hidden? null : 
-              <div className='postcontent'>
-                <div className='postbuttonscontainer'>
-                  {this.state.editing? <button className='confirmeditbutton' onClick={this.handleConfirmEdit}>SAVE</button> : null}
-                  <button className='posteditbutton' onClick={this.handleEdit}>{this.state.editing? 'CANCEL' : 'EDIT'}</button>
-                  <button className='postdeletebutton' onClick={this.handleDelete}>DELETE</button>
-                </div>
-                {this.state.editing?
-                  <div>
-                    <input type='text' defaultValue={this.props.post.title} onChange={this.handleTitleChange}/>
-                    <textarea defaultValue={this.props.post.title} cols='40' rows='15' onChange={this.handleContentChange}/>
+            {this.state.is_open? 
+              <div>
+                <div className='postcontent'>
+                  <div className='postheader'>
+                    <h4>{this.props.post.title}</h4>
+                    <div className='postbuttonscontainer'>
+                      {this.state.editing? <button className='confirmeditbutton' onClick={this.handleConfirmEdit}>SAVE</button> : null}
+                      <button className='postdeletebutton' onClick={this.handleDelete}></button>
+                      <button className='posteditbutton' onClick={this.handleEdit}></button>
+                      <button className='showcontentbutton' onClick={this.showAndHide}>X</button>
+                    </div>
                   </div>
-                :
-                  this.props.post.content.split('\n').map((line)=>{return <p>{line}</p>})
-                }
+                  {this.state.editing?
+                    <div className='posteditor'>
+                      {<input type='text' maxLength='40' defaultValue={this.props.post.title} onChange={this.handleTitleChange}/>}
+                      <textarea defaultValue={this.props.post.content} cols='35' rows='15' onChange={this.handleContentChange}/>
+                    </div>
+                  : <div className='posttext'>
+                      {this.props.post.content.split('\n').map((line)=>{
+                        if (line){
+                          return <p>{line}</p>
+                        }else{
+                          return <br/>
+                        }
+                      })}
+                    </div>
+                  }
+                </div>
+              </div>
+              :
+              <div className='postinfo'>
+                <button className='showcontentbutton' onClick={this.showAndHide}>{this.state.is_open? 'HIDE':'SHOW'}</button>
+                <h2>{this.props.post.title}</h2>
               </div>
             }
           </div>

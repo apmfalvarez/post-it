@@ -30,8 +30,9 @@ class NewPost extends React.Component{
     }
 
     create(){
-        if (this.state.title && this.state.content){
+        if (this.state.title){
             this.props.create(this.state.title, this.state.content);
+            this.setState({title: '', content: ''})
             this.showAndHide();
         }
     }
@@ -39,12 +40,16 @@ class NewPost extends React.Component{
     render(){
         return(
             <div className='newpost'>
-                <button className="newpostbutton" onClick={this.showAndHide}>{this.state.hidden? '+':'-'}</button>
+                <button className='button' onClick={this.showAndHide}>{this.state.hidden? '+':'-'}</button>
                 {this.state.hidden? null :
-                <div className='newpostcontent'>
-                    <input type='text' placeholder='Title' onChange={this.handleTitleChange}/>
-                    <textarea id='#newpostcontent' placeholder='Content' cols='40' rows='15' onChange={this.handleContentChange}/>
-                    <button className='submitpostbutton' onClick={this.create}>CREATE</button>
+                <div className='container'>
+                    <div className='buttonscontainer'>
+                        <button className='submit' onClick={this.create}>CREATE</button>
+                    </div>
+                    <div className='editor'> 
+                        <input type='text' required placeholder='Title' maxLength='40' onChange={this.handleTitleChange}/>
+                        <textarea placeholder='Content' cols='40' rows='15' onChange={this.handleContentChange}/>
+                    </div>
                 </div>}
             </div>
         )

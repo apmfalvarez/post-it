@@ -85,12 +85,14 @@ postsRouter.put('/:postId', (req, res, next)=>{
     db.run(
         `UPDATE Post
             SET title = $title,
-            content = $content
+            content = $content,
+            is_open = $is_open
             WHERE id = $id`,
         {
             $id: req.params.postId,
             $title: post.title,
-            $content: post.content || ''
+            $content: post.content || '',
+            $is_open: post.is_open
         },
         function(error){
             if (error){
