@@ -20,7 +20,6 @@ class Post extends React.Component{
   }
   showAndHide(){
     this.props.editPost({id: this.state.id, is_open: this.state.is_open === 1? 0 : 1, title: this.state.title, content: this.state.content})
-    this.state.is_open? this.setState({is_open:0}) : this.setState({is_open: 1});
   }
   handleDelete(){
     this.props.delete(this.props.post);
