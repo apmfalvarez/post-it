@@ -58,7 +58,7 @@ class App extends React.Component {
       <div className="App">
         <header>
           <a href='#top'><img src={logo2} alt='logo' />
-          <h1>Pin.it</h1></a>
+          <h1>Post.it</h1></a>
         </header>
         <div className='container'>
           <span className='content'>

@@ -6,7 +6,7 @@ class OpenPostList extends React.Component{
     render(){
         return(
             <div className='openpostlist'>
-                {this.props.posts.map(post =>{
+                {this.props.posts.reverse().map(post =>{
                 return <Post post={post} key={post.id} delete={this.props.deletePost} editPost={this.props.editPost}/>
                 })}
             </div>

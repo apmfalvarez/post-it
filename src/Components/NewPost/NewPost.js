@@ -51,7 +51,7 @@ class NewPost extends React.Component{
                         </div>
                     </div>
                     <div className='editor'> 
-                        <textarea placeholder='Content' cols='35' rows='15' onChange={this.handleContentChange}/>
+                        <textarea placeholder='Content' cols='35' rows='6' onChange={this.handleContentChange}/>
                     </div>
                 </div>}
             </div>
