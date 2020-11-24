@@ -43,7 +43,6 @@ header h1{
   width: 95%;
   height: 850px;
   margin: auto;
-  border: 1px solid orange;
 }
 
 .content {
@@ -53,15 +52,16 @@ header h1{
   overflow-y: scroll;
   overflow-wrap: break-word;
   display: inline-block;
-  border: 1px solid green;
+  direction: rtl;
 }
+
+.flipper { direction: ltr;}
 
 .openposts {
   position: absolute;
   width: 75%;
   height: 100%;
   display: inline-block;
-  border: 1px solid blue;
   overflow: hidden;
   overflow-y: scroll;
 }

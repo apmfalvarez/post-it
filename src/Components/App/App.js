@@ -63,8 +63,10 @@ class App extends React.Component {
         </header>
         <div className='container'>
           <span className='content'>
+            <div className='flipper'>
             <NewPost create={this.create}/>
             <PostList posts={this.state.posts.filter(post=> post.is_open === 0)} deletePost={this.deletePost} editPost={this.editPost}/>
+            </div>
           </span>
           <span className='openposts'>
             <OpenPostList posts={this.state.posts.filter(post=> post.is_open === 1)} deletePost={this.deletePost} editPost={this.editPost}/>

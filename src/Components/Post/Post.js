@@ -29,7 +29,7 @@ class Post extends React.Component{
     this.state.editing? this.setState({editing:false}) : this.setState({editing: true});
   }
   handleConfirmEdit(){
-    this.props.editPost({id: this.state.id, title: this.state.title, content: this.state.content});
+    this.props.editPost({id: this.state.id, title: this.state.title, content: this.state.content, is_open: this.state.is_open});
     this.handleEdit();
   }
   handleTitleChange(e){
@@ -47,20 +47,24 @@ class Post extends React.Component{
               <div>
                 <div className='postcontent'>
                   <div className='postheader'>
-                    <h4>{this.props.post.title}</h4>
+                    {this.state.editing? 
+                      <input type='text' maxLength='30' defaultValue={this.props.post.title} onChange={this.handleTitleChange}/> 
+                      :
+                      <h4>{this.props.post.title}</h4>
+                    }
                     <div className='postbuttonscontainer'>
-                      {this.state.editing? <button className='confirmeditbutton' onClick={this.handleConfirmEdit}>SAVE</button> : null}
                       <button className='postdeletebutton' onClick={this.handleDelete}></button>
+                      {this.state.editing? <button className='confirmeditbutton' onClick={this.handleConfirmEdit}></button> : null}
                       <button className='posteditbutton' onClick={this.handleEdit}></button>
                       <button className='showcontentbutton' onClick={this.showAndHide}>X</button>
                     </div>
                   </div>
                   {this.state.editing?
                     <div className='posteditor'>
-                      {<input type='text' maxLength='40' defaultValue={this.props.post.title} onChange={this.handleTitleChange}/>}
                       <textarea defaultValue={this.props.post.content} cols='35' rows='15' onChange={this.handleContentChange}/>
                     </div>
-                  : <div className='posttext'>
+                    : 
+                    <div className='posttext'>
                       {this.props.post.content.split('\n').map((line)=>{
                         if (line){
                           return <p>{line}</p>

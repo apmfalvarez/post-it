@@ -47,7 +47,7 @@ class NewPost extends React.Component{
                         <button className='submit' onClick={this.create}>CREATE</button>
                     </div>
                     <div className='editor'> 
-                        <input type='text' required placeholder='Title' maxLength='40' onChange={this.handleTitleChange}/>
+                        <input type='text' required placeholder='Title' maxLength='30' onChange={this.handleTitleChange}/>
                         <textarea placeholder='Content' cols='40' rows='15' onChange={this.handleContentChange}/>
                     </div>
                 </div>}
