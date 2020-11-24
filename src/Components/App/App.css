@@ -13,6 +13,10 @@ html{
   background-color: black;
 }
 
+html::-webkit-scrollbar-thumb{
+  background-color: yellow;
+}
+
 header{
   height: 69px;
   border-bottom: 1px solid yellow;
@@ -40,7 +44,7 @@ header h1{
 .container{
   position: relative;
   top: 75px;
-  width: 95%;
+  width: 100%;
   height: 850px;
   margin: auto;
 }

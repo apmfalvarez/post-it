@@ -43,12 +43,15 @@ class NewPost extends React.Component{
                 <button className='button' onClick={this.showAndHide}>{this.state.hidden? '+':'-'}</button>
                 {this.state.hidden? null :
                 <div className='container'>
-                    <div className='buttonscontainer'>
-                        <button className='submit' onClick={this.create}>CREATE</button>
+                    <div className='postheader'>
+                        <input type='text' required placeholder='Title' maxLength='30' onChange={this.handleTitleChange}/>
+                        <div className='buttonscontainer'>
+                            <button className='submit' onClick={this.create}></button>
+                            <button className='close' onClick={this.showAndHide}>X</button>
+                        </div>
                     </div>
                     <div className='editor'> 
-                        <input type='text' required placeholder='Title' maxLength='30' onChange={this.handleTitleChange}/>
-                        <textarea placeholder='Content' cols='40' rows='15' onChange={this.handleContentChange}/>
+                        <textarea placeholder='Content' cols='35' rows='15' onChange={this.handleContentChange}/>
                     </div>
                 </div>}
             </div>

@@ -33,7 +33,6 @@ class App extends React.Component {
     Postit.deletePost(post)
     .then(deleted=>{
       const newPosts = currentPosts.filter(i => i !== deleted);
-      console.log('lalalala')
       this.setState({posts: newPosts});
     })
     .catch(error => {return});
