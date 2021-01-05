@@ -18,9 +18,9 @@ class App extends React.Component {
     this.editPost = this.editPost.bind(this);
   }
 
-  create(title,content){
+  create(title,content,color){
     const currentPosts = this.state.posts;
-    const newPost = {title: title, content: content};
+    const newPost = {title: title, content: content, color: color};
     Postit.addPost(newPost)
     .then(post =>{
       currentPosts.unshift(post);

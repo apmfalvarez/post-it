@@ -47,15 +47,17 @@ postsRouter.get('/:postId', (req, res, next)=>{
 postsRouter.post('/', (req, res, next)=>{
     const post = req.body.post;
     console.log(req.body);
-    if (!post.title){
+    if (!post.color){
         return res.status(400).send()
     }
     db.run(`INSERT INTO Post
-        (title, content)
-        VALUES ($title, $content)`,
+        (title, content, is_open, color)
+        VALUES ($title, $content, $is_open, $color)`,
     {
-        $title: post.title,
-        $content: post.content || ''
+        $title: post.title || '',
+        $content: post.content || '',
+        $is_open: post.is_open || 0,
+        $color: post.color || 'yellow'
     },
     function(error){
         if (error){
@@ -79,20 +81,22 @@ postsRouter.post('/', (req, res, next)=>{
 
 postsRouter.put('/:postId', (req, res, next)=>{
     const post = req.body.post;
-    if (!post.title){
+    if (!post.is_open /*|| !post.color*/){
         return res.status(400).send()
     }
     db.run(
         `UPDATE Post
             SET title = $title,
             content = $content,
-            is_open = $is_open
+            is_open = $is_open,
+            color = $color
             WHERE id = $id`,
         {
             $id: req.params.postId,
             $title: post.title,
             $content: post.content || '',
-            $is_open: post.is_open
+            $is_open: post.is_open,
+            $color: post.color || 'yellow'
         },
         function(error){
             if (error){

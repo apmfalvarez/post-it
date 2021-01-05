@@ -28,10 +28,8 @@ class Post extends React.Component{
     this.state.editing? this.setState({editing:false}) : this.setState({editing: true});
   }
   handleConfirmEdit(){
-    if(this.state.title){
       this.props.editPost({id: this.state.id, title: this.state.title, content: this.state.content, is_open: this.state.is_open});
       this.handleEdit();
-    }
   }
   handleTitleChange(e){
     const newTitle = e.target.value;

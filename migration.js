@@ -10,12 +10,10 @@ db.serialize(()=>{
     db.run(
         `CREATE TABLE IF NOT EXISTS Post (
             id INTEGER PRIMARY KEY,
-            title TEXT NOT NULL,
+            title TEXT,
             content TEXT,
-            is_open INTEGER DEFAULT 0
+            is_open INTEGER NOT NULL DEFAULT 0,
+            color TEXT NOT NULL DEFAULT yellow
             )`
     );
-    db.run(
-        `DROP TABLE IF EXISTS Comment`
-    )
 });

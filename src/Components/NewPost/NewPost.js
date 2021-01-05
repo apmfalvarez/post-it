@@ -7,7 +7,8 @@ class NewPost extends React.Component{
         this.state = {
             hidden: true,
             title: '',
-            content: ''
+            content: '',
+            color: 'yellow'
         };
         this.showAndHide = this.showAndHide.bind(this);
         this.handleContentChange = this.handleContentChange.bind(this);
@@ -30,11 +31,9 @@ class NewPost extends React.Component{
     }
 
     create(){
-        if (this.state.title){
-            this.props.create(this.state.title, this.state.content);
-            this.setState({title: '', content: ''})
+            this.props.create(this.state.title, this.state.content, this.state.color);
+            this.setState({title: '', content: '', color: 'yellow'})
             this.showAndHide();
-        }
     }
 
     render(){
